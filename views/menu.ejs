@@ -9,16 +9,44 @@
     <%- include('./partials/nav') %>
   <h1>Full Menu</h1>
   <h2>Menu</h2>
+  <h2>Mains</h2>
 <ul>
   <% restaurant.menu.forEach(function(item) { %>
-    <li>
-      <strong><%= item.name %></strong> - $<%= item.price %><br>
-      Rating: <%= item.rating %> stars<br>
-      <em><%= item.details %></em>
-    </li>
-    <hr>
+    <% if (item.category === 'mains') { %>
+      <li>
+        <strong><%= item.name %></strong> - $<%= item.price %><br>
+        Rating: <%= item.rating %> stars<br>
+        <em><%= item.details %></em>
+      </li>
+      <hr>
+    <% } %>
   <% }); %>
 </ul>
-
+<h2>Sides</h2>
+<ul>
+  <% restaurant.menu.forEach(function(item) { %>
+    <% if (item.category === 'sides') { %>
+      <li>
+        <strong><%= item.name %></strong> - $<%= item.price %><br>
+        Rating: <%= item.rating %> stars<br>
+        <em><%= item.details %></em>
+      </li>
+      <hr>
+    <% } %>
+  <% }); %>
+</ul>
+<h2>Dessert</h2>
+<ul>
+  <% restaurant.menu.forEach(function(item) { %>
+    <% if (item.category === 'desserts') { %>
+      <li>
+        <strong><%= item.name %></strong> - $<%= item.price %><br>
+        Rating: <%= item.rating %> stars<br>
+        <em><%= item.details %></em>
+      </li>
+      <hr>
+    <% } %>
+  <% }); %>
+</ul>
 </body>
 </html>
